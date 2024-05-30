@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import Foundation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet private weak var counterUILabel: UILabel!
     
