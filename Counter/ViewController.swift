@@ -9,16 +9,16 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var CounterUILabel: UILabel!
     
-    @IBOutlet weak var ButtonPlusUIButton: UIButton!
+    @IBOutlet private weak var counterUILabel: UILabel!
     
-    @IBOutlet weak var ButtonMinusUIButton: UIButton!
+    @IBOutlet private weak var buttonPlusUIButton: UIButton!
     
-    @IBOutlet weak var ButtonResetUIButton: UIButton!
+    @IBOutlet private weak var buttonMinusUIButton: UIButton!
     
-    @IBOutlet weak var HistoryUITextView: UITextView!
+    @IBOutlet private weak var buttonResetUIButton: UIButton!
+    
+    @IBOutlet private weak var historyUITextView: UITextView!
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -27,52 +27,52 @@ class ViewController: UIViewController {
         return formatter
     }()
     
-    private func CounterCheck() -> Int? {
-        guard let count = Int(CounterUILabel.text ?? "0") else {
-            HistoryUITextView.text += "\(dateFormatter.string(from: Date())): упс, что-то пошло не так!\n"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        counterUILabel.text = "0"
+        counterUILabel.font = .boldSystemFont(ofSize: 28)
+        
+        historyUITextView.text = "История изменений:\n"
+        
+        buttonPlusUIButton.tintColor = .red
+        
+        buttonMinusUIButton.tintColor = .blue
+    }
+    
+    private func counterCheck() -> Int? {
+        guard let count = Int(counterUILabel.text ?? "0") else {
+            historyUITextView.text += "\(dateFormatter.string(from: Date())): упс, что-то пошло не так!\n"
             return nil
         }
         return count
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        CounterUILabel.text = "0"
-        CounterUILabel.font = .boldSystemFont(ofSize: 28)
-        
-        HistoryUITextView.text = "История изменений:\n"
-        
-        ButtonPlusUIButton.tintColor = .red
-        
-        ButtonMinusUIButton.tintColor = .blue
-    }
-    
-    @IBAction func ButtonPlusTouchUpInside(_ sender: Any) {
-        if let count = CounterCheck() {
-            HistoryUITextView.text += "\(dateFormatter.string(from: Date())): значение изменено на +1\n"
+    @IBAction private func buttonPlusTouchUpInside(_ sender: Any) {
+        if let count = counterCheck() {
+            historyUITextView.text += "\(dateFormatter.string(from: Date())): значение изменено на +1\n"
             
-            CounterUILabel.text = String(count+1)
+            counterUILabel.text = String(count+1)
         }
     }
     
-    @IBAction func ButtonMinusTouchUpInside(_ sender: Any) {
-        if let count = CounterCheck() {
+    @IBAction private func buttonMinusTouchUpInside(_ sender: Any) {
+        if let count = counterCheck() {
             if (count - 1 >= 0) {
-                HistoryUITextView.text += "\(dateFormatter.string(from: Date())): значение изменено на -1\n"
+                historyUITextView.text += "\(dateFormatter.string(from: Date())): значение изменено на -1\n"
                 
-                CounterUILabel.text = String(count-1)
+                counterUILabel.text = String(count-1)
             }
             else {
-                HistoryUITextView.text += "\(dateFormatter.string(from: Date())): попытка уменьшить значение счётчика ниже 0\n"
+                historyUITextView.text += "\(dateFormatter.string(from: Date())): попытка уменьшить значение счётчика ниже 0\n"
             }
         }
     }
     
-    @IBAction func ResetButtonTouchUpInside(_ sender: Any) {
-        CounterUILabel.text = "0"
+    @IBAction private func resetButtonTouchUpInside(_ sender: Any) {
+        counterUILabel.text = "0"
         
-        HistoryUITextView.text += "\(dateFormatter.string(from: Date())): значение сброшено\n"
+        historyUITextView.text += "\(dateFormatter.string(from: Date())): значение сброшено\n"
     }
 }
 

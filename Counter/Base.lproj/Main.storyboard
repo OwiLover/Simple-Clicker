@@ -22,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="+"/>
                                 <connections>
-                                    <action selector="ButtonPlusTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTG-FA-41X"/>
+                                    <action selector="buttonPlusTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6c4-pH-JKT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eah-Lm-tSA">
@@ -31,7 +31,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="-"/>
                                 <connections>
-                                    <action selector="ButtonMinusTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jn0-q9-tI3"/>
+                                    <action selector="buttonMinusTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Unl-qO-rdc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQM-se-7mA">
@@ -40,7 +40,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" image="gobackward" catalog="system"/>
                                 <connections>
-                                    <action selector="ResetButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZbK-ej-mCu"/>
+                                    <action selector="resetButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nci-YT-Fea"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8G-oY-YSY">
@@ -64,11 +64,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="ButtonMinusUIButton" destination="eah-Lm-tSA" id="IFs-QJ-uag"/>
-                        <outlet property="ButtonPlusUIButton" destination="owe-rO-ofu" id="Obl-GT-Xuz"/>
-                        <outlet property="ButtonResetUIButton" destination="kQM-se-7mA" id="idu-yY-TBp"/>
-                        <outlet property="CounterUILabel" destination="Plx-5h-Mcv" id="yPQ-98-dD4"/>
-                        <outlet property="HistoryUITextView" destination="X8G-oY-YSY" id="TS8-Qg-hnQ"/>
+                        <outlet property="buttonMinusUIButton" destination="eah-Lm-tSA" id="lxp-b9-ZiX"/>
+                        <outlet property="buttonPlusUIButton" destination="owe-rO-ofu" id="Bp3-sz-9Wb"/>
+                        <outlet property="buttonResetUIButton" destination="kQM-se-7mA" id="9Gd-W2-GzA"/>
+                        <outlet property="counterUILabel" destination="Plx-5h-Mcv" id="17m-k9-apj"/>
+                        <outlet property="historyUITextView" destination="X8G-oY-YSY" id="Web-ZA-L6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
